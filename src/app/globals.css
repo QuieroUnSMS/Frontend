@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 40 33% 96%;
+  --foreground: 160 12% 10%;
+  --card: 40 45% 99%;
+  --card-foreground: 160 12% 10%;
+  --primary: 166 64% 22%;
+  --primary-foreground: 48 45% 96%;
+  --muted: 40 18% 92%;
+  --muted-foreground: 160 6% 36%;
+  --destructive: 4 72% 42%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 14% 84%;
+  --radius: 1rem;
+}
+
+body {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(ellipse at top left, hsl(166 42% 90%) 0%, transparent 46%);
+  color: hsl(var(--foreground));
+}
+
+.signal-track {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  background: hsl(var(--border));
+}
+
+.signal-track::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 38%;
+  background: hsl(var(--primary));
+  animation: signal 1.15s ease-in-out infinite;
+}
+
+@keyframes signal {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
